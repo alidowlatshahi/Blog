@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif; /* This is a modern, clean font */
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.blog-name {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-right: auto; /* This will push the blog name to the left */
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none; /* Removes default list styling */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    color: #007BFF; /* Change the color on hover for interactivity */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links on smaller screens */
+    }
+
+    /* You might want to add a burger icon and JavaScript to handle mobile navigation */
+}
+
+/* ... existing CSS ... */
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
+}
+
+/* Add animation */
+@keyframes modalopen {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-save:hover {
+    opacity: 0.8;
+}
+
+/* ... rest of your CSS ... */
