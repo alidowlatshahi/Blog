@@ -110,4 +110,40 @@ body {
     opacity: 0.8;
 }
 
+.post-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .post-image {
+    background-color: #f4f4f4; /* Placeholder color, replace with an image if needed */
+    height: 200px; /* Adjust based on your content */
+  }
+  
+  .post-content {
+    padding: 1rem;
+  }
+  
+  .post-title {
+    margin-top: 0;
+  }
+  
+  .post-body {
+    color: #333;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .post-card {
+      margin: 0.5rem;
+    }
+  }
+
 /* ... rest of your CSS ... */

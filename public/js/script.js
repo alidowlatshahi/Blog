@@ -24,6 +24,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       })
       .catch((error) => console.error("Error fetching posts:", error));
+
+    posts.forEach((post) => {
+      const postElement = document.createElement("div");
+      postElement.className = "post-card";
+      postElement.innerHTML = `
+          <div class="post-image"></div> <!-- Placeholder for post image if you want to add one -->
+          <div class="post-content">
+            <h3 class="post-title">${post.title}</h3>
+            <p class="post-body">${post.content.substring(
+              0,
+              200
+            )}...</p> <!-- Display a snippet -->
+            <button onclick="editPost('${post._id}')">Edit</button>
+            <button onclick="deletePost('${post._id}')">Delete</button>
+          </div>
+        `;
+      postsContainer.appendChild(postElement);
+    });
   }
 
   // Function to open the modal for editing a post
