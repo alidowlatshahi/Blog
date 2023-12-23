@@ -11,9 +11,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFFFFF;
+    background-color: #007BFF; /* A distinct blue color */
     padding: 0.75rem 2rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: white; /* Change text color for better contrast */
 }
 
 .blog-name {
@@ -29,15 +30,15 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: white; /* Ensure links are also white for contrast */
     font-weight: 400;
     font-size: 1rem;
     padding: 0.5rem 1rem;
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover, .nav-links a:focus {
-    color: #007BFF; /* Change the color on hover for interactivity */
+    color: #d1e8ff; /* A lighter blue for hover effect */
 }
 
 /* Responsive design for smaller screens */
@@ -155,3 +156,11 @@ body {
     line-height: 1.6;
 }
 
+#create-post-title {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}

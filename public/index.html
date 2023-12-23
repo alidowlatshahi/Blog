@@ -7,9 +7,27 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/yygit7smr86uprn8jzdfis9fypn6lovqzwc1ejalugjf4jmx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 </head>
 <body>
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+          ],
+          ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+      </script>
+      <textarea>
+        Welcome to TinyMCE!
+      </textarea>
     <header>
         <nav class="navbar">
             <div class="blog-name">Ali</div>
@@ -47,17 +65,30 @@
             <span class="close create-modal-close">&times;</span>
             <h2>Create New Post</h2>
             <form id="create-post-form">
-                <input type="text" id="create-post-title" placeholder="Title" required>
+                <input type="text" id="create-post-title" placeholder="Title" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
                 <textarea id="create-post-content" placeholder="Content" required></textarea>
                 <button type="submit" class="btn-save">Create Post</button>
-            </form>
+            </form>            
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2023 My Blog</p>
+    <footer style="background-color: #f8f9fa; text-align: center; padding: 1rem 0; margin-top: 2rem; font-size: 0.9rem; color: #333; border-top: 1px solid #eaeaea;">
+        <p>&copy; <span id="footer-year"></span> Ali's Blog. All rights reserved.</p>
+        <p>
+            Follow us on 
+            <a href="https://twitter.com/yourtwitter" target="_blank">Twitter</a>, 
+            <a href="https://facebook.com/yourfacebook" target="_blank">Facebook</a>, 
+            <a href="https://instagram.com/yourinstagram" target="_blank">Instagram</a>
+        </p>
+        <p><a href="/contact">Contact Us</a></p>
     </footer>
-
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
+        });
+    </script>
+    
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -24,11 +24,12 @@ const Post = mongoose.model("Post", postSchema);
 // Middleware
 app.use(express.static("public"));
 app.use(express.json());
+
 // Set the view engine to ejs
 app.set("view engine", "ejs");
 
 // Set the views directory
-app.set("views", path.join(__dirname, "views"));
+app.set("views", "/Users/alidowlatshahi/Desktop/Projects/blog/Blog/views");
 
 // CRUD Operations
 // Get all posts
@@ -54,6 +55,7 @@ app.get("/posts/:id", async (req, res) => {
     if (!post) {
       return res.status(404).send("Post not found");
     }
+    console.log("Views directory set to:", app.get("views"));
     res.render("postDetail", { post }); // This will render postDetail.ejs from the views directory
   } catch (error) {
     console.error("Error in /posts/:id route:", error);
