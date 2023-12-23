@@ -123,7 +123,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 250px; /* Fixed height for the card */
+    height: 250px; /* Adjust the height as needed */
+    width: 250px; /* Adjust the width as needed */
 }
 
 .post-card:hover {
@@ -132,8 +133,8 @@ body {
 
 .post-image {
     width: 100%;
-    height: 70%; /* Adjust the height as needed */
-    background-size: contain; /* Change to 'contain' to fit the image within the div */
+    height: 70%;
+    background-size: cover; /* Cover might zoom in, try 'contain' if it's too zoomed */
     background-repeat: no-repeat;
     background-position: center;
 }

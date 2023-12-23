@@ -45,6 +45,10 @@ app.get("/api/posts/:id", async (req, res) => {
 });
 
 app.get("/posts/:id", async (req, res) => {
+  const id = req.params.id;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send("Invalid ID format");
+  }
   try {
     const post = await Post.findById(req.params.id);
     if (!post) {
@@ -52,6 +56,7 @@ app.get("/posts/:id", async (req, res) => {
     }
     res.render("postDetail", { post }); // This will render postDetail.ejs from the views directory
   } catch (error) {
+    console.error("Error in /posts/:id route:", error);
     res.status(500).send("Server error");
   }
 });
