@@ -11,37 +11,23 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((posts) => {
         const postsContainer = document.getElementById("blog-posts");
-        postsContainer.innerHTML = ""; // Clear existing posts
+        postsContainer.innerHTML = "";
+
         posts.forEach((post) => {
           const postElement = document.createElement("div");
+          postElement.className = "post-card";
           postElement.innerHTML = `
-              <h3>${post.title}</h3>
-              <p>${post.content}</p>
-              <button onclick="editPost('${post._id}')">Edit</button>
-              <button onclick="deletePost('${post._id}')">Delete</button>
-            `;
+                    <a href="/posts/${post._id}" class="post-link">
+                        <div class="post-image" style="background-image: url('${
+                          post.imageUrl || "/defaultblogpost.jpg"
+                        }');"></div>
+                        <h3 class="post-title">${post.title}</h3>
+                    </a>
+                `;
           postsContainer.appendChild(postElement);
         });
       })
       .catch((error) => console.error("Error fetching posts:", error));
-
-    posts.forEach((post) => {
-      const postElement = document.createElement("div");
-      postElement.className = "post-card";
-      postElement.innerHTML = `
-          <div class="post-image"></div> <!-- Placeholder for post image if you want to add one -->
-          <div class="post-content">
-            <h3 class="post-title">${post.title}</h3>
-            <p class="post-body">${post.content.substring(
-              0,
-              200
-            )}...</p> <!-- Display a snippet -->
-            <button onclick="editPost('${post._id}')">Edit</button>
-            <button onclick="deletePost('${post._id}')">Delete</button>
-          </div>
-        `;
-      postsContainer.appendChild(postElement);
-    });
   }
 
   // Function to open the modal for editing a post

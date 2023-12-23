@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
+const path = require("path");
 
 // MongoDB Connection String
 const mongoDBConnectionString = "mongodb://localhost:27017/myblog"; // Replace with your connection string
@@ -23,6 +24,11 @@ const Post = mongoose.model("Post", postSchema);
 // Middleware
 app.use(express.static("public"));
 app.use(express.json());
+// Set the view engine to ejs
+app.set("view engine", "ejs");
+
+// Set the views directory
+app.set("views", path.join(__dirname, "views"));
 
 // CRUD Operations
 // Get all posts
@@ -36,6 +42,18 @@ app.get("/api/posts/:id", async (req, res) => {
   const post = await Post.findById(req.params.id);
   if (!post) return res.status(404).send("Post not found");
   res.send(post);
+});
+
+app.get("/posts/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.status(404).send("Post not found");
+    }
+    res.render("postDetail", { post }); // This will render postDetail.ejs from the views directory
+  } catch (error) {
+    res.status(500).send("Server error");
+  }
 });
 
 // Create a new post

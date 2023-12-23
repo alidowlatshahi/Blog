@@ -110,40 +110,47 @@ body {
     opacity: 0.8;
 }
 
-.post-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .post-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .post-image {
-    background-color: #f4f4f4; /* Placeholder color, replace with an image if needed */
-    height: 200px; /* Adjust based on your content */
-  }
-  
-  .post-content {
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Creates a responsive grid */
+    grid-gap: 1rem; /* Space between cards */
     padding: 1rem;
-  }
-  
-  .post-title {
-    margin-top: 0;
-  }
-  
-  .post-body {
+}
+
+.post-card {
+    /* ... other styles ... */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px; /* Fixed height for the card */
+}
+
+.post-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.post-image {
+    width: 100%;
+    height: 70%; /* Adjust the height as needed */
+    background-size: contain; /* Change to 'contain' to fit the image within the div */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.post-content {
+    padding: 1rem;
+}
+
+.post-title {
+    font-size: 1.2rem; /* Adjust title size */
+    text-align: center;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+}
+
+.post-body {
     color: #333;
     line-height: 1.6;
-  }
+}
 
-  @media (max-width: 768px) {
-    .post-card {
-      margin: 0.5rem;
-    }
-  }
-
-/* ... rest of your CSS ... */
